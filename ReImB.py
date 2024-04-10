@@ -103,3 +103,42 @@ def epsilon129(E):
 def epsilon129_1atm(E):
     k = 0.6947*np.sqrt(E*10**3)*10**10
     return 0.17*np.tanh(9.0*10**(-2)*const129.num_129_1atm*const129.d_cell*(4*np.pi/k)*ImB_129Xe(E))
+
+def sigmaHe(E):
+    sigma_0=5333    #barn
+    E_0=25*10**-3   #eV
+    return sigma_0*(np.sqrt(E_0)/np.sqrt(E))
+
+def Poln(E):
+    sigma_0=5333    #barn
+    E_0=25*10**-3   #eV
+    #return np.tanh(constHe.P_He*constHe.rho_He*constHe.d_He*(sigma_0*(np.sqrt(E_0)/np.sqrt(E)))*10**(-28))
+    return np.tanh(constHe.P_He*constHe.rho_He*constHe.d_He*(1100/np.sqrt(E))*10**(-28))
+
+def epsilon129Poln(E):
+    sigma_0=5333    #barn
+    E_0=25*10**-3   #eV
+    k = 0.6947*np.sqrt(E*10**3)*10**10
+    #return np.tanh(constHe.P_He*constHe.rho_He*constHe.d_He*(sigma_0*(np.sqrt(E_0)/np.sqrt(E)))*10**(-28))*np.tanh(1.9*10**(-2)*const129.num_129*const129.d_cell*(4*np.pi/k)*ImB_129Xe(E))
+    return np.tanh(constHe.P_He*constHe.rho_He*constHe.d_He*(1200/np.sqrt(E))*10**(-28))*np.tanh(1.9*10**(-2)*const129.num_129*const129.d_cell*(4*np.pi/k)*ImB_129Xe(E))
+
+def epsilon131Poln(E):
+    sigma_0=5333    #barn
+    E_0=25*10**-3   #eV
+    k = 0.6947*np.sqrt(E*10**3)*10**10
+    #return np.tanh(constHe.P_He*constHe.rho_He*constHe.d_He*(sigma_0*(np.sqrt(E_0)/np.sqrt(E)))*10**(-28))*np.tanh(4.2*10**(-4)*const131.num_131*const131.d_cell*(4*np.pi/k)*ImB_131Xe(E))
+    return np.tanh(constHe.P_He*constHe.rho_He*constHe.d_He*(1200/np.sqrt(E))*10**(-28))*np.tanh(4.2*10**(-4)*const131.num_131*const131.d_cell*(4*np.pi/k)*ImB_131Xe(E))
+
+def epsilon129Poln_1atm(E):
+    sigma_0=5333    #barn
+    E_0=25*10**-3   #eV
+    k = 0.6947*np.sqrt(E*10**3)*10**10
+    #return np.tanh(constHe.P_He*constHe.rho_He*constHe.d_He*(sigma_0*(np.sqrt(E_0)/np.sqrt(E)))*10**(-28))*np.tanh(9.0*10**(-2)*const129.num_129_1atm*const129.d_cell*(4*np.pi/k)*ImB_129Xe(E))
+    return np.tanh(constHe.P_He*constHe.rho_He*constHe.d_He*(1200/np.sqrt(E))*10**(-28))*np.tanh(9.0*10**(-2)*const129.num_129_1atm*const129.d_cell*(4*np.pi/k)*ImB_129Xe(E))
+
+def epsilon131Poln_1atm(E):
+    sigma_0=5333    #barn
+    E_0=25*10**-3   #eV
+    k = 0.6947*np.sqrt(E*10**3)*10**10
+    #return np.tanh(constHe.P_He*constHe.rho_He*constHe.d_He*(sigma_0*(np.sqrt(E_0)/np.sqrt(E)))*10**(-28))*np.tanh(0.1974*10**(-2)*const131.num_131_1atm*const131.d_cell*(4*np.pi/k)*ImB_131Xe(E))
+    return np.tanh(constHe.P_He*constHe.rho_He*constHe.d_He*(1200/np.sqrt(E))*10**(-28))*np.tanh(0.1974*10**(-2)*const131.num_131_1atm*const131.d_cell*(4*np.pi/k)*ImB_131Xe(E))
